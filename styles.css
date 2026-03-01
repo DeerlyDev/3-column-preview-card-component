@@ -1,0 +1,143 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-gold: hsl(31, 77%, 52%);
+  --color-cyan: hsl(184, 100%, 22%);
+  --color-green: hsl(179, 100%, 13%);
+  --transparent: hsla(0, 0%, 100%, 0.75);
+  --gray-100: hsl(0, 0%, 95%);
+  --heading-font: "Big Shoulders", sans-serif;
+  --primary-font: "Lexend Deca", sans-serif;
+  --section-pd: 40px;
+  --section-pd-mb: 20px;
+}
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: var(--gray-100);
+  padding: 50px 20px;
+}
+section {
+  background-color: var(--gray-100);
+  min-height: 500px;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 300px));
+  align-items: stretch;
+  font-family: var(--primary-font);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+section h1 {
+  color: var(--gray-100);
+  font-family: var(--heading-font);
+  font-size: 2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-block: 30px;
+}
+
+section p {
+  color: var(--transparent);
+  font-size: 15px;
+  line-height: 1.8;
+  margin-block-end: 20px;
+}
+
+section img {
+  width: 60px;
+}
+
+.sedan-section {
+  background-color: var(--color-gold);
+}
+.sedan-section button {
+  color: var(--color-gold);
+}
+
+.suv-section {
+  background-color: var(--color-cyan);
+}
+.suv-section button {
+  color: var(--color-cyan);
+}
+
+.luxury-section {
+  background-color: var(--color-green);
+}
+.luxury-section button {
+  color: var(--color-green);
+}
+
+.sedan-section,
+.suv-section,
+.luxury-section {
+  padding: var(--section-pd);
+  display: flex;
+  flex-direction: column;
+}
+
+section button {
+  padding: 15px 30px;
+  border: 2px solid var(--gray-100);
+  border-radius: 9999px;
+  font-family: inherit;
+  background-color: var(--gray-100);
+  margin-top: auto; /* pushes button to the bottom */
+  align-self: start; /* optional: keep button on left */
+}
+
+section button:hover {
+  color: var(--gray-100);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+@media (width <= 690px) {
+  .sedan-section,
+  .suv-section,
+  .luxury-section {
+    padding: var(--section-pd-mb);
+  }
+
+  section button {
+    padding: 10px 20px;
+  }
+}
+@media (width <= 592px) {
+  section h1 {
+    font-size: 1.8rem;
+  }
+  section p {
+    font-size: 0.8rem;
+  }
+  section button {
+    padding: 10px 15px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (width <= 520px) {
+  section {
+    grid-template-columns: 1fr;
+  }
+
+  .sedan-section,
+  .suv-section,
+  .luxury-section {
+    padding: var(--section-pd);
+  }
+
+  section button {
+    padding: 10px 25px;
+    font-size: 0.8rem;
+  }
+}
